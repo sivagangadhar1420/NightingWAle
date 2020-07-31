@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+
+<div class="container">
+  <div class="form-group">
+    <input type="text" id="name" name="name" class="form-control" placeholder="search" [(ngModel)]="search"
+      placeholder="Search">
+  </div>
+  <!-- <button class="btn btn-primary" (click)="search()">Search</button> --> 
+  <!-- <div class="row text-center" style="padding-top:20px; background-color: aqua;"> 
+      <div class="col-sm-4" *ngFor="let image of movies | filter:search">
+        <img src="{{image.Poster}}" height="350px" width="100%">
+        <div class="title">{{image.Title}}</div>
+      </div>
+    </div> -->
+  <div class="card-columns m-4">
+    <div class="card p-4 " *ngFor="let image of movies | filter:search">
+      <div class="card-body">
+        <img src="{{image.Poster}}" width="100%" height="200px" style="object-fit: cover;">
+        <p class="title">{{image.Title}}</p>
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>
+  <table class="table table-bordered" style="margin-top: 25px;">
+    <thead>
+      <tr>
+        <th>Movie name</th>
+        <th>Movie Year</th>
+        <th>Movie id</th>
+        <th>
+          <button class="btn btn-success" (click)="addMovies()" data-toggle="modal" data-target="#myModal">Add Movies</button>
+
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let image of movies let i=index">
+      <tr>
+        <td>{{image.Title}}</td>
+        <td>{{image.Year}}</td>
+        <td>{{image.imdbID}}</td>
+        <td>
+          <button class="btn btn-info" data-toggle="modal" data-target="#editmodal" (click)="editMovies(image.Title,image.Year,image.imdbID,i)">Edit</button>&nbsp;&nbsp;
+          <button class="btn btn-danger" (click)="deleteMovies(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog  my-5">
+
+       <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Add</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <input type="text" [(ngModel)]="moviename" class="form-control" placeholder="enter movie name">
+          <input type="text" [(ngModel)]="movieyear" class="form-control" placeholder="enter movie year" style="margin-top: 10px;">
+          <input type="text" [(ngModel)]="id" class="form-control" placeholder="enter movie id" style="margin-top: 10px;">
+          <div>
+            <div class="btn-group col-sm-12 m-2" style="align-items: center;">
+            <button class="btn btn-info m-auto col-sm-2" type="submit" data-dismiss="modal" (click)="onSubmit()" style="margin-top: 10px;">Submit</button>
+          </div></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="editmodal" role="dialog">
+    <div class="modal-dialog  my-5">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Edit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <input type="text" class="form-control" placeholder="enter movie name" value= {{moviename}} [(ngModel)]="moviename">
+          <input type="text" class="form-control" placeholder="enter movie year" style="margin-top: 10px;" value="{{movieyear}}" [(ngModel)]="movieyear" >
+          <input type="text" class="form-control" placeholder="enter movie id" style="margin-top: 10px;" value="{{id}}" [(ngModel)]="id">
+          <div>
+            <div class="btn-group col-sm-12 m-2" style="align-items: center;">
+            <button class="btn btn-info m-auto col-sm-2" type="submit" (click)="updateMovies()" style="margin-top: 10px; " data-dismiss="modal" >Submit</button>
+          </div></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="video" style="width: 100%;">
+    <video controls (click)="toggleVideo()" #videoPlayer style="width: 100;">
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+      Browser not supported
+    </video>
+  </div>
+</div>

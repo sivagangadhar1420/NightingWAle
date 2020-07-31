@@ -1,0 +1,146 @@
+  <div class="container">
+
+    <form action="" (ngSubmit)="onSubmit()" #fnForm="ngForm" class="my-4" >
+      <div class="form-group ">
+      <div class="row">
+
+      <div class="col-md-5">
+      <input type="text" name="nm1" id="nm1" [(ngModel)]="quantity" class="form-control">
+    </div>
+    
+    <div class="col-md-5">
+      <input type="text" name="nm2" id="nm2" [(ngModel)]="price" class="form-control">
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-primary" type="submit">AddItems</button>
+    </div>
+
+  </div>
+</div>
+</form>
+<br>
+<button class="btn btn-info"  type="submit" data-toggle="modal" data-target="#add1">AddItemsHere</button>
+
+<br>
+  <div class="row" *ngFor="let otpt of res11; let i=index">
+  
+    <div class="col-md-5">
+      <form action="">
+        <div class="form-group">
+          <input type="text" class="form-control" name="" id="" value="{{otpt.quantity}}">
+        </div>
+      </form>
+    </div>
+        
+    
+    <div class="col-md-5">
+      <form action="">
+        <div class="form-group">
+          <input type="text" class="form-control" name="" id="" value="{{otpt.price}}">
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-2 ">
+    <div class="btn-group">
+<button class="btn btn-primary mr-2" type="button"
+       (click)="delete(i)" style="width: 6rem;">Delete</button>
+<button class="btn btn-primary" type="button" data-target="#edit" data-toggle="modal" 
+        (click)="edit(otpt.quantity, otpt.price, i)" style="width: 6rem;">Edit</button>
+      </div>
+    </div>
+
+  </div>
+
+  
+
+          <!-- Update -->
+  
+  <div class="modal" id="edit" role="dialog">
+    <div class="modal-dialog  my-5">
+
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Edit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+<input type="text" class="form-control" placeholder="enter movie name" [(ngModel)]="price">
+<input type="text" class="form-control" placeholder="enter movie year" style="margin-top: 10px;" [(ngModel)]="quantity" >
+<input type="text" class="form-control" placeholder="enter movie id" style="margin-top: 10px;" [(ngModel)]="index">
+<div>
+            <div class="btn-group col-sm-12 m-2" style="align-items: center;">
+            <button class="btn btn-info m-auto col-sm-2" type="submit" (click)="updateItems()" style="margin-top: 10px; " data-dismiss="modal" >Submit</button>
+          </div></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+                        <!-- ADD -->
+ 
+</div>
+  </div>
+
+  <div class="modal" id="add1" role="dialog">
+    <div class="modal-dialog  my-5">
+
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Edit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+<input type="text" class="form-control" placeholder="enter movie name" [(ngModel)]="price">
+<input type="text" class="form-control" placeholder="enter movie year" style="margin-top: 10px;" [(ngModel)]="quantity" >
+<div>
+            <div class="btn-group col-sm-12 m-2" style="align-items: center;">
+            <button class="btn btn-info m-auto col-sm-2" type="submit" (click)="updateItems()" style="margin-top: 10px; " data-dismiss="modal" >Submit</button>
+          </div></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+      
+
+
+<div *ngFor="let data of storingData let i=index">
+ <!-- <div *ngIf=" data.age >= 25" [ngClass]="{'age':data.isAged}"> -->
+   
+ <div *ngIf=" data.age >= 25" [ngClass]="setClasses()">
+        
+    {{i+1 + ". "}}{{data.name}} {{data.age}}
+  </div>
+  {{i+1 + ". "}}{{data.name}} {{data.age}}
+</div>
+  
+
+</div>
+<button class="btn btn-danger" (click)="upDateName()" type="button">Update Name</button>
+{{name}}
+<button class="btn btn-danger" type="button" [disabled]="btnEnable">Enable Name</button>
+
+<button class="btn btn-danger" type="button" [disabled]="st">Enable After</button>
+<input type="text" name="pl" id="pl1" [(ngModel)]="serverName">
+{{serverName}}
+
+ 
+
+
+
+
+    

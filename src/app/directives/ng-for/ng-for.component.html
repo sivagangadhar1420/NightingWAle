@@ -1,0 +1,40 @@
+<p>ng-for works!</p>
+{{message}}
+<app-ng-if (childEvent)="message=$event" [parentData]="name"></app-ng-if>
+
+<!-- 
+<mat-checkbox  [(ngModel)]="checked">Checked</mat-checkbox>
+<mat-checkbox [(ngModel)]="indeterminate">Indeterminate</mat-checkbox> -->
+
+<div class="form-check" style="margin-left: 50px; margin-top: 50px;">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" value="">Option 1
+    </label>
+  </div>
+  <div class="form-check" style="margin-left: 50px;">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" value="">Option 2
+    </label>
+  </div>
+  <div class="form-check" style="margin-left: 50px;">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+    </label>
+  </div>
+
+  <div class="container text-center fixed-bottom" id="cl"  >
+    <div class="row">
+      <div class="col-md">
+        <div>
+          <span>&times;</span> <br>
+        <p>contact</p>
+      </div>
+      </div>
+      <div class="col-md">bbbb
+        <span>&times;</span></div>
+      <div class="col-md">
+        ccc
+        <span>&times;</span>
+      </div>
+    </div> 
+  </div>

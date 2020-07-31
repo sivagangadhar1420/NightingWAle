@@ -1,0 +1,103 @@
+/* @media screen and (min-width: 480px) { */
+  body{
+      background-color: blueviolet;
+      margin: 0px;
+  }
+  mat-grid-tile {
+    background: lightblue;
+  }
+    @media screen and (max-width: 480px) {
+        .img1{
+            width: 5rem;
+            height: auto;
+        }
+        .nav{
+            width: 10rem;
+            height: auto;
+
+        }
+        nav{
+            display: inline-block;
+        }
+
+    }
+/* } */
+
+/* .span{
+    margin-right:30px;
+}
+.navbar{
+    justify-content: space-between;
+} */
+
+img{
+
+    object-fit: cover;
+}
+
+#sb{
+    height: auto;
+       background-color: crimson;
+       width: 100%;
+       text-align: center;
+       align-items: center;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+    
+
+/*     
+<div class="col-sm-12 row" style="justify-content: center; align-items: center; margin-top: 40px;">
+<mat-card class="col-sm-2" style="background-color: #235d5d;">
+  <div class="row" style="color: white;  display: flex;
+  justify-content: center;
+  align-items: center">
+    <h1 style="font-size: 30px;">1</h1>
+    <h1 style="margin-left: 20px; font-size: 18x;">Blood test <br> analysis</h1>
+  </div>
+
+  
+</mat-card>
+<mat-card class="col-sm-2" style="margin-left: 30px; background-color: #235d5d">
+  <div class="row" style="color: white; align-items: center; justify-content: center;">
+    <h1 style="font-size: 30px;">2</h1>
+    <h1 style="margin-left: 20px; font-size: 18x;">General <br>Health</h1>
+  </div>
+</mat-card>
+</div>
+
+
+<div class="col-sm-12 row" style="justify-content: center; align-items: center; margin-top: 40px;">
+<mat-card class="col-sm-2" style="background-color: #235d5d;">
+  <div class="row" style="color: white;  display: flex;
+  justify-content: center;
+  align-items: center">
+    <h1 style="font-size: 30px;">1</h1>
+    <h1 style="margin-left: 20px; font-size: 18x;">Blood test <br> analysis</h1>
+  </div>
+
+  
+</mat-card>
+<mat-card class="col-sm-2" style="margin-left: 30px; background-color: #235d5d">
+  <div class="row" style="color: white; align-items: center; justify-content: center;">
+    <h1 style="font-size: 30px;">2</h1>
+    <h1 style="margin-left: 20px; font-size: 18x;">General <br>Health</h1>
+  </div>
+</mat-card>
+</div> */

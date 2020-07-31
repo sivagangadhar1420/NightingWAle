@@ -1,0 +1,6 @@
+<p>dynamicrouting works!</p>
+<ul class="items">
+    <li (click)="onSelect(d)" *ngFor="let d of departments">
+         <span class="badge">{{d.id}}</span>{{d.name}}
+    </li>
+</ul>
